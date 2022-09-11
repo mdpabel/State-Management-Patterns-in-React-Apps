@@ -14,7 +14,12 @@ const GlobalSpinnerContextProvider = ({ children }) => {
 
   return (
     <GlobalSpinnerContext.Provider
-      value={{ showSpinner, closeSpinner, toggleSpinner, isSpinnerVisible }}
+      value={{
+        isSpinnerVisible,
+        showSpinner,
+        closeSpinner,
+        toggleSpinner,
+      }}
     >
       {children}
       <GlobalSpinner />

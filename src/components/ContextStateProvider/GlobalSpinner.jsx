@@ -1,18 +1,15 @@
 import { useContext } from 'react';
 import clsx from 'clsx';
-import GlobalSpinnerContextProvider from '../../contexts/GlobalSpinnerContext';
+import { GlobalSpinnerContext } from '../../contexts/GlobalSpinnerContext';
 
 const GlobalSpinner = () => {
-  const c = useContext(GlobalSpinnerContextProvider);
-  console.log(c);
-
-  const isSpinnerVisible = true;
+  const { isSpinnerVisible } = useContext(GlobalSpinnerContext);
 
   return (
     <div
       className={clsx(
-        'flex justify-center items-center min-w-screen min-h-screen bg-gray-900 bg-opacity-40',
-        isSpinnerVisible ? 'flex' : 'hideen'
+        'z-40 min-h-screen min-w-screen bg-gray-900 bg-opacity-40 fixed top-0 left-0  right-0 bottom-0 items-center justify-center',
+        isSpinnerVisible ? 'flex' : 'hidden'
       )}
     >
       <div className="flex justify-center items-center bg-white w-36 h-36 rounded-xl">
