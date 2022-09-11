@@ -1,7 +1,7 @@
-import BusinessCardEditor from './components/BusinessCardEditor';
+import GlobalSpinner from './components/context/GlobalSpinner';
 
 function App() {
-  return <BusinessCardEditor />;
+  return <GlobalSpinner />;
 }
 
 export default App;
