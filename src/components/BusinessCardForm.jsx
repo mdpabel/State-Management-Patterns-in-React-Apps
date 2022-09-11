@@ -1,29 +1,7 @@
-import { useState } from 'react';
 import classes from './BusinessCardForm.module.css';
 
-const BusinessCardForm = () => {
-  const [form, setForm] = useState({
-    avatar: null,
-    name: '',
-    description: '',
-    phone: '',
-    address: '',
-  });
-
-  const onFileUpload = (e) => {
-    setForm((state) => ({
-      ...state,
-      avatar: e.target.files?.[0],
-    }));
-  };
-
-  const onInputChange = (e) => {
-    console.log(e.target);
-    setForm((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  };
+const BusinessCardForm = (state) => {
+  const { form, onFileUpload, onInputChange } = state;
 
   return (
     <div>
