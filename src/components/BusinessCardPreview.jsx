@@ -22,7 +22,7 @@ const BusinessCardPreview = ({ form }) => {
                 className="h-full w-full object-cover"
                 alt="Avatar"
               />
-            ) : null}
+            ) : null} 
           </div>
           <div className="flex flex-col flex-grow">
             <p className="font-semibold text-2xl mb-3">{name}</p>
