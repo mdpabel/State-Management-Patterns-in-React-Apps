@@ -1,6 +1,20 @@
+import { useContext } from 'react';
+import clsx from 'clsx';
+import GlobalSpinnerContextProvider from '../../contexts/GlobalSpinnerContext';
+
 const GlobalSpinner = () => {
+  const c = useContext(GlobalSpinnerContextProvider);
+  console.log(c);
+
+  const isSpinnerVisible = true;
+
   return (
-    <div className="flex justify-center items-center min-w-screen min-h-screen bg-gray-900 bg-opacity-40">
+    <div
+      className={clsx(
+        'flex justify-center items-center min-w-screen min-h-screen bg-gray-900 bg-opacity-40',
+        isSpinnerVisible ? 'flex' : 'hideen'
+      )}
+    >
       <div className="flex justify-center items-center bg-white w-36 h-36 rounded-xl">
         <svg
           className="animate-spin h-12 w-12 text-indigo-700"

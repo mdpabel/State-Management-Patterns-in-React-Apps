@@ -1,10 +1,10 @@
+import GlobalSpinner from '../components/ContextStateProvider/GlobalSpinner';
 import { createContext } from 'react';
-import GlobalSpinner from '../components/context/GlobalSpinner';
 import { useToggle } from '../hooks/useToggle';
 
-export const GlobalSpinnerContext = createContext();
+export const GlobalSpinnerContext = createContext(undefined);
 
-export const GlobalSpinnerContextProvider = ({ children }) => {
+const GlobalSpinnerContextProvider = ({ children }) => {
   const {
     open: showSpinner,
     close: closeSpinner,
@@ -21,3 +21,5 @@ export const GlobalSpinnerContextProvider = ({ children }) => {
     </GlobalSpinnerContext.Provider>
   );
 };
+
+export default GlobalSpinnerContextProvider;

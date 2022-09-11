@@ -1,5 +1,5 @@
-import GlobalSpinnerExample from './components/context/GlobalSpinnerExample';
-import { GlobalSpinnerContextProvider } from './contexts/GlobalSpinnerContext';
+import GlobalSpinnerExample from './components/ContextStateProvider/GlobalSpinnerExample';
+import GlobalSpinnerContextProvider from './contexts/GlobalSpinnerContext';
 
 function App() {
   return (
