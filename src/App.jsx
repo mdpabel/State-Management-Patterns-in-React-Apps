@@ -1,7 +1,12 @@
-import GlobalSpinner from './components/context/GlobalSpinner';
+import GlobalSpinnerExample from './components/context/GlobalSpinnerExample';
+import { GlobalSpinnerContextProvider } from './contexts/GlobalSpinnerContext';
 
 function App() {
-  return <GlobalSpinner />;
+  return (
+    <GlobalSpinnerContextProvider>
+      <GlobalSpinnerExample />
+    </GlobalSpinnerContextProvider>
+  );
 }
 
 export default App;
