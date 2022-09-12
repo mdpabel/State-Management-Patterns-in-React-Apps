@@ -1,8 +1,13 @@
 import GlobalSpinner from '../components/ContextStateProvider/GlobalSpinner';
-import { createContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useToggle } from '../hooks/useToggle';
+import { contextFactory } from '../helpers/contextFactory';
 
-export const GlobalSpinnerContext = createContext(undefined);
+const [useGlobalSpinnerContext, GlobalSpinnerContext] = contextFactory();
+const [useGlobalSpinnerActionsContext, GlobalSpinnerActionsContext] =
+  contextFactory();
+
+export { useGlobalSpinnerActionsContext, useGlobalSpinnerContext };
 
 const GlobalSpinnerContextProvider = ({ children }) => {
   const {
@@ -13,18 +18,23 @@ const GlobalSpinnerContextProvider = ({ children }) => {
   } = useToggle(false);
 
   const values = useMemo(() => {
+    return { isSpinnerVisible };
+  }, [isSpinnerVisible]);
+
+  const actions = useMemo(() => {
     return {
-      isSpinnerVisible,
       showSpinner,
       closeSpinner,
       toggleSpinner,
     };
-  }, [isSpinnerVisible]);
+  }, []);
 
   return (
     <GlobalSpinnerContext.Provider value={values}>
-      {children}
-      <GlobalSpinner />
+      <GlobalSpinnerActionsContext.Provider value={actions}>
+        {children}
+        <GlobalSpinner />
+      </GlobalSpinnerActionsContext.Provider>
     </GlobalSpinnerContext.Provider>
   );
 };

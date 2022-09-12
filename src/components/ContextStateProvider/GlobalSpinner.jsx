@@ -1,9 +1,8 @@
-import { useContext } from 'react';
 import clsx from 'clsx';
-import { GlobalSpinnerContext } from '../../contexts/GlobalSpinnerContext';
+import { useGlobalSpinnerContext } from '../../contexts/GlobalSpinnerContext';
 
 const GlobalSpinner = () => {
-  const { isSpinnerVisible } = useContext(GlobalSpinnerContext);
+  const { isSpinnerVisible } = useGlobalSpinnerContext();
 
   return (
     <>
