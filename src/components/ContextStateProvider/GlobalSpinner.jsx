@@ -5,6 +5,8 @@ import { GlobalSpinnerContext } from '../../contexts/GlobalSpinnerContext';
 const GlobalSpinner = () => {
   const { isSpinnerVisible } = useContext(GlobalSpinnerContext);
 
+  console.log('GlobalSpinner');
+
   return (
     <div className="relative">
       <div

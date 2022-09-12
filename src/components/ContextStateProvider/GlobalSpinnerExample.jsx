@@ -9,6 +9,8 @@ const GlobalSpinnerExample = () => {
     setTimeout(() => closeSpinner(), 5000);
   };
 
+  console.log('GlobalSpinnerExample');
+
   return (
     <div className="flex justify-center items-center min-w-screen min-h-screen">
       <button
