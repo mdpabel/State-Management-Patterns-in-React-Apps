@@ -26,7 +26,7 @@ const GlobalSpinner = () => {
                 cx="12"
                 cy="12"
                 r="10"
-                stroke="currentColor"
+                stroke="currentColor" 
                 strokeWidth="4"
               ></circle>
               <path
