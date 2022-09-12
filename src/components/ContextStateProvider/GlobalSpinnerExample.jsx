@@ -15,7 +15,7 @@ const GlobalSpinnerExample = () => {
         <button
           onClick={handleSpinner}
           className="bg-gray-500 py-3 px-6 text-white rounded"
-        >
+        > 
           Show Spinner
         </button>
       </div>
