@@ -40,6 +40,9 @@ export default Component;
 ```
 
 - Extract JSX into its own component wrapped with memo
+```jsx
+//
+```
 - Split the Context and use two separate context providers
 
 ```jsx
