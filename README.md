@@ -5,4 +5,36 @@
 # improve performance and avoid unnecessary re-renders with Context API
 
 - memoized context provider values using useMemo hook
+
+```jsx
+  const values = useMemo(() => {
+    return {
+     //values
+    };
+  }, [dep]);
+
+  return (
+    <Provider value={values}>
+      {children}
+    </Provider>
+  );
+
+```
+
 - Wrap JSX inside of the useMemo hook
+
+```jsx
+import { useContext, useMemo } from 'react';
+
+const Component = () => {
+  return useMemo(
+    () => (
+      // jsx
+    ),
+    []
+  );
+};
+
+export default Component;
+
+```
