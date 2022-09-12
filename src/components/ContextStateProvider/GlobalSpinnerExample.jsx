@@ -9,17 +9,18 @@ const GlobalSpinnerExample = () => {
     setTimeout(() => closeSpinner(), 5000);
   };
 
-  console.log('GlobalSpinnerExample');
-
   return (
-    <div className="flex justify-center items-center min-w-screen min-h-screen">
-      <button
-        onClick={handleSpinner}
-        className="bg-gray-500 py-3 px-6 text-white rounded"
-      >
-        Show Spinner
-      </button>
-    </div>
+    <>
+      {console.log('GlobalSpinnerExample')}
+      <div className="flex justify-center items-center min-w-screen min-h-screen">
+        <button
+          onClick={handleSpinner}
+          className="bg-gray-500 py-3 px-6 text-white rounded"
+        >
+          Show Spinner
+        </button>
+      </div>
+    </>
   );
 };
 
