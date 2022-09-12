@@ -13,7 +13,7 @@
     };
   }, [dep]);
 
-  return ( 
+  return (
     <Provider value={values}>
       {children}
     </Provider>
@@ -41,4 +41,55 @@ export default Component;
 
 - Extract JSX into its own component wrapped with memo
 - Split the Context and use two separate context providers
- 
+
+```jsx
+// helpers
+import { createContext, useContext } from 'react';
+
+export const contextFactory = () => {
+  const context = createContext();
+
+  const useCtx = () => {
+    const ctx = useContext(context);
+    if (!ctx) {
+      throw new Error('useContext must be used inside a provider with a value');
+    }
+    return ctx;
+  };
+
+  return [useCtx, context];
+};
+
+// context.jsx
+
+const [useGlobalSpinnerContext, GlobalSpinnerContext] = contextFactory();
+const [useGlobalSpinnerActionsContext, GlobalSpinnerActionsContext] =
+  contextFactory();
+
+export { useGlobalSpinnerActionsContext, useGlobalSpinnerContext };
+
+const GlobalSpinnerContextProvider = ({ children }) => {
+
+  const values = useMemo(() => {
+    return { isSpinnerVisible };
+  }, [isSpinnerVisible]);
+
+  const actions = useMemo(() => {
+    return {
+      showSpinner,
+      closeSpinner,
+      toggleSpinner,
+    };
+  }, []);
+
+  return (
+    <GlobalSpinnerContext.Provider value={values}>
+      <GlobalSpinnerActionsContext.Provider value={actions}>
+        {children}
+        <GlobalSpinner />
+      </GlobalSpinnerActionsContext.Provider>
+    </GlobalSpinnerContext.Provider>
+  );
+};
+
+```
