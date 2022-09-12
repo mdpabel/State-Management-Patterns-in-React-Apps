@@ -38,3 +38,6 @@ const Component = () => {
 export default Component;
 
 ```
+
+- Extract JSX into its own component wrapped with memo
+- Split the Context and use two separate context providers
