@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { boardData } from '../../dummy-data/board';
 
 const TasksBoard = (props) => {
-  const [board, setBoard] = useState(boardData);
+  const getInitalState = () => JSON.parse(window.localStorage.getItem('board'));
+  const [board, setBoard] = useState(getInitalState || boardData);
   const [selectedTask, setSelectedTask] = useState();
 
   const onSelectTask = (columnIdx, taskIdx) => {
@@ -18,33 +19,7 @@ const TasksBoard = (props) => {
 
   const onTaskNameChange = (e) => {
     const value = e.target.value;
-
-    setBoard((board) => {
-      return {
-        ...board,
-        columns: [
-          ...board.columns.map((column, idx) => {
-            if (idx !== selectedTask.columnIdx) {
-              return column;
-            }
-            return {
-              ...column,
-              tasks: [
-                ...column.tasks.map((task, _taskIdx) => {
-                  if (_taskIdx !== selectedTask.taskIdx) {
-                    return task;
-                  }
-
-                  return {
-                    name: value,
-                  };
-                }),
-              ],
-            };
-          }),
-        ],
-      };
-    });
+    board.columns[selectedTask.columnIdx]?.tasks[selectedTask.taskIdx].name = value
   };
 
   return (

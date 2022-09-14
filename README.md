@@ -95,3 +95,42 @@ const GlobalSpinnerContextProvider = ({ children }) => {
 ```
 
 - using use-context-selector library
+
+# useState vs useImmer
+
+### useState
+
+```jsx
+setBoard((board) => {
+      return {
+        ...board,
+        columns: [
+          ...board.columns.map((column, idx) => {
+            if (idx !== selectedTask.columnIdx) {
+              return column;
+            }
+            return {
+              ...column,
+              tasks: [
+                ...column.tasks.map((task, _taskIdx) => {
+                  if (_taskIdx !== selectedTask.taskIdx) {
+                    return task;
+                  }
+
+                  return {
+                    name: value,
+                  };
+                }),
+              ],
+            };
+          }),
+        ],
+      };
+    });
+```
+
+### useImmer
+
+```jsx
+  board.columns[selectedTask.columnIdx]?.tasks[selectedTask.taskIdx].name = value
+```
