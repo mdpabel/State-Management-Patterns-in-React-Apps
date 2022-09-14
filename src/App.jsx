@@ -1,12 +1,7 @@
-import GlobalSpinnerExample from './components/ContextStateProvider/GlobalSpinnerExample';
-import GlobalSpinnerContextProvider from './contexts/GlobalSpinnerContext';
+import TasksBoard from './components/use-immer/TasksBoard';
 
 function App() {
-  return (
-    <GlobalSpinnerContextProvider>
-      <GlobalSpinnerExample />
-    </GlobalSpinnerContextProvider>
-  );
+  return <TasksBoard />;
 }
 
 export default App;
