@@ -93,3 +93,5 @@ const GlobalSpinnerContextProvider = ({ children }) => {
 };
 
 ```
+
+- using use-context-selector library
